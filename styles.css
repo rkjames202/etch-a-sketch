@@ -34,6 +34,9 @@ h1{
     margin-right: 10px;
 }
 
+/*
+* Will display each row on top of each other
+*/
 .grid{
     display: flex;
     flex-direction: column;
@@ -42,6 +45,9 @@ h1{
     height: 300px;
 }
 
+/*
+*Rows will displayed horizontally
+*/
 .row{
     display: flex;
     flex-grow: 1;

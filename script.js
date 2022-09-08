@@ -10,13 +10,13 @@ function createGrid(size){
     //Reference to container element
     const grid = document.querySelector(".grid");
 
-    //For each row...
+    //Create 'size' amount of rows
     for(let i = 0; i < size; i++){
         const row = document.createElement('div');
         row.classList.add('row')
         grid.appendChild(row);
         
-        //Make 'size' amount of boxes
+        //Fill each row with with 'size amount of boxes
         for(let n = 0; n < size; n++){     
             let box = document.createElement('div');
             box.classList.add('box');
@@ -32,7 +32,8 @@ function createGrid(size){
 function addEventListeners(){
     //For each box in grid
     boxes = document.querySelectorAll('.box');
-    boxes.forEach((box) => box.addEventListener('mouseover', changeBoxColor));
+    boxes.forEach((box) => box.addEventListener('mouseover', 
+                                                () => box.style.backgroundColor = 'black'));
 
     //Clear button
     clearButton = document.querySelector('.clear-button');
@@ -40,17 +41,8 @@ function addEventListeners(){
 
     //Erase button
     eraseButton = document.querySelector('.erase-button');
-    eraseButton.addEventListener
+    eraseButton.addEventListener('click', eraseGrid)
 
-}
-
-/**
- * Callback function for all of the boxes in
- * grid
- */
-function changeBoxColor(){
-    //Change each boxes background to black
-    this.style.backgroundColor = 'black';
 }
 
 /**
@@ -62,11 +54,29 @@ function clearGrid(){
     boxes.forEach((box) => box.style.backgroundColor = 'white');
 }
 
+/*
+* TODO: add slider to choose grid size
+        do 'extra credit' portion
+        add more css to website
+        **commit along the way
+*/
 
 function eraseGrid(){
-/**
- * Let user know they are in erase mode, change button text to 'Draw'
- */
+    
+    //Reference to box elements in grid
+    boxes = document.querySelectorAll('.box');
+    
+    //Lets user alternate between drawing and erasing
+    if(this.innerText === 'Erase'){    
+        this.innerText = 'Draw'; 
+        boxes.forEach((box) => box.addEventListener('mouseover', 
+                                                    () => box.style.backgroundColor = 'white'));
+    } else if(this.innerText === 'Draw'){
+        this.innerText = 'Erase';
+        boxes.forEach((box) => box.addEventListener('mouseover', 
+                                                    () => box.style.backgroundColor = 'black'));
+    }
+
 }
 
 

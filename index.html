@@ -7,23 +7,42 @@
     <title>Etch-a-Sketch</title>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="styles.css">
+
+    <!--External font from Google API-->
+    <link href="https://fonts.googleapis.com/css2?family=Varela&display=swap" rel="stylesheet">
+    <!--fontawesome icons-->
+    <script src="https://kit.fontawesome.com/616e6c23e1.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body>   
+    <div class="title">
+        <h1>Etch-a-Sketch</h1>
+    </div>
     <div class="container">
-        <div class="buttons"> 
-            <button type="button" class="clear-button">Clear</button>
-            <button type="button" class ="erase-button">Erase</button>
-            <div class="slider-container">
-                <p>Grid Size:</p>
-                <input type="range" min="1" max="100" value="16" class="slider" id="grid-size">
-                <p><span class="slider-value">16x16</span></p>
-                <button class="apply-button">Apply</button>
+        <div class='user-interface'>
+            <div class="color-picker-container">
+                <label for="color-picker">Color:</label>
+                <input type="color" id="color-picker" name="color" value="#000000">
             </div>
+            <div class="buttons">    
+                <button class="rainbow-button">Rainbow Mode</button>
+                <button type="button" class="clear-button">Clear</button>
+                <button type="button" class ="erase-button">Erase</button>
+                 <div class="slider-container">
+                    <p>Grid Size:</p>
+                    <input type="range" min="1" max="100" value="16" class="slider" id="grid-size">
+                    <p class="slider-value">16x16</p>
+                    <button class="apply-button">Apply</button>
+                    <p class="grid-error-message">Choose different grid size</p>
+                </div>
+            </div>
+                
         </div>
-        <div class="center-container">
-            <h1>Etch-a-Sketch</h1>
+        <div class="grid-container">
             <div class="grid"></div>
         </div>
+    </div>
+    <div class="footer">
+        <span>Made By Russell James</span> <a href="https://github.com/rkjames202" target="_blank"><i class="fa-brands fa-github"></a></i>
     </div>
 </body>
 </html>
